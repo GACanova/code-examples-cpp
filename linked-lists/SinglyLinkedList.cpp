@@ -22,7 +22,8 @@ public:
 		head = nullptr;
     	}
     
-    	int get(int index) 
+	/* Get the value at the ith node */
+	int get(int index) 
 	{
 		if(index < 0 || index >= size)
 			return -1;
@@ -34,7 +35,8 @@ public:
 
 		return node->data;
     	}
-    
+   
+       	/* Add a new head node, if there is already a head node, the existing one will be moved to the next node */	
     	void addAtHead(int val) 
     	{	
 		Node *newNode = new Node(val);
@@ -50,7 +52,8 @@ public:
 		}
 		size++;
     	}
-    
+   
+        /* Add a new node at the end of the chain */	
     	void addAtTail(int val) 
     	{
         	if(head == nullptr)
@@ -71,7 +74,8 @@ public:
 		node->next = new Node(val);
 		size++;
     	}
-    
+   
+        /* Add a new node at the ith index */	
     	void addAtIndex(int index, int val) 
     	{
 		if(index > size)
@@ -99,7 +103,8 @@ public:
 		}
 
     	}
-    
+   
+        /* Delete the node at the ith index */	
     	void deleteAtIndex(int index) 
 	{
 		if(index < 0 || index >= size)
@@ -121,6 +126,7 @@ public:
 		size--;
     	}
 
+	/* Return a pointer to head */
 	Node *getHead() const
 	{
 		return head;
@@ -128,6 +134,7 @@ public:
 
 };
 
+/* Overload the "<<" operator to print all the elements of the chain */
 ostream &operator<<(ostream &out, const MyLinkedList &myLinkedList)
 {
 	Node *node = myLinkedList.getHead();
